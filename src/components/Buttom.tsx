@@ -32,7 +32,9 @@ export function Button({
           : '$green700'
       }
       $active-bgColor={
-        GluestackButtonProps?.variant === 'outline' ? '$gray500' : '$green500'
+        GluestackButtonProps?.variant === 'outline'
+          ? '$coolGray500'
+          : '$green500'
       }
       {...GluestackButtonProps}
     >

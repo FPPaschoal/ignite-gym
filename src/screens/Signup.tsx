@@ -12,17 +12,24 @@ import BackgroundImg from '@assets/background.png';
 import LogoSvg from '@assets/logo.svg';
 import { Input } from '@components/input';
 import { Button } from '@components/Buttom';
+import { useNavigation } from '@react-navigation/native';
 
 export function SignUp() {
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
-      style={{ backgroundColor: '#121214' }}
     >
-      <VStack flex={1} bg="$gray700" position="relative" pb="$4">
+      <VStack flex={1} position="relative" pb="$4">
         <Image
           source={BackgroundImg}
+          defaultSource={BackgroundImg}
           flex={1}
           resizeMode="contain"
           position="absolute"
@@ -34,13 +41,13 @@ export function SignUp() {
           <View>
             <Center my={'$24'} px="$6">
               <LogoSvg />
-              <Text color="$gray100" fontSize={'$sm'}>
+              <Text color="$coolGray100" fontSize={'$sm'}>
                 Treine sua mente e seu corpo
               </Text>
             </Center>
             <Center px="$6">
               <Heading
-                color="$gray100"
+                color="$coolGray100"
                 fontSize={'$xl'}
                 mb={'$6'}
                 fontFamily="$heading"
@@ -77,7 +84,12 @@ export function SignUp() {
           </View>
 
           <Center px="$6" mt={'$24'} gap={'$3'}>
-            <Button GluestackButtonProps={{ variant: 'outline' }}>
+            <Button
+              GluestackButtonProps={{
+                variant: 'outline',
+                onPress: handleGoBack,
+              }}
+            >
               Voltar para o login
             </Button>
           </Center>

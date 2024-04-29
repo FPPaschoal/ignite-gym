@@ -8,7 +8,7 @@ interface InputProps {
 export function Input({ GluestackInputProps, InputFieldProps }: InputProps) {
   return (
     <GluestackInput
-      bg="$gray700"
+      bg="$coolGray700"
       size="lg"
       px={'$4'}
       height={56}
@@ -24,7 +24,7 @@ export function Input({ GluestackInputProps, InputFieldProps }: InputProps) {
         fontFamily="$body"
         fontSize={'$md'}
         color="$white"
-        placeholderTextColor="$gray300"
+        placeholderTextColor="$coolGray300"
         {...InputFieldProps}
       />
     </GluestackInput>

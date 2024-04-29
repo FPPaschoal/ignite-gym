@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/roboto';
 import { Loading } from '@components/Loading';
 import { config } from '@gluestack-ui/config';
-import { SignUp } from '@screens/Signup';
+import { Routes } from '@routes/index';
 
 const newConfig = {
   ...config,
@@ -17,13 +17,14 @@ const newConfig = {
       ...config.tokens.colors,
       green700: '#00875F',
       green500: '#00B37E',
-      gray700: '#121214',
-      gray600: '#202024',
-      gray500: '#29292E',
-      gray400: '#323238',
-      gray300: '#7C7C8A',
-      gray200: '#C4C4CC',
-      gray100: '#E1E1E6',
+
+      coolGray700: '#121214',
+      coolGray600: '#202024',
+      coolGray500: '#29292E',
+      coolGray400: '#323238',
+      coolGray300: '#7C7C8A',
+      coolGray200: '#C4C4CC',
+      coolGray100: '#E1E1E6',
       red500: '#F75A68',
     },
     fonts: {
@@ -51,7 +52,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <SignUp></SignUp> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </GluestackUIProvider>
   );
 }
