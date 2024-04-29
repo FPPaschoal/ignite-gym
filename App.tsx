@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/roboto';
 import { Loading } from '@components/Loading';
 import { config } from '@gluestack-ui/config';
-import { SignIn } from '@screens/Signin';
+import { SignUp } from '@screens/Signup';
 
 const newConfig = {
   ...config,
@@ -51,7 +51,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <SignIn></SignIn> : <Loading />}
+      {fontsLoaded ? <SignUp></SignUp> : <Loading />}
     </GluestackUIProvider>
   );
 }
