@@ -22,7 +22,7 @@ O Ignite Gym é uma aplicação de academia completa, projetada para oferecer ao
 ## Tecnologias Utilizadas
 
 - **React Native**: A estrutura principal para o desenvolvimento do aplicativo móvel.
-- **Native Base**: Uma biblioteca de componentes utilizada para criar interfaces de usuário consistentes e estilizadas.
+- **Gluestack**: Uma biblioteca de componentes utilizada para criar interfaces de usuário consistentes e estilizadas.
 
 ## Como Usar
 
