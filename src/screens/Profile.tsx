@@ -7,7 +7,7 @@ import { Input } from '@components/Input';
 
 import { TouchableOpacity } from 'react-native';
 import { Heading } from '@gluestack-ui/themed';
-import { Button } from '@components/Buttom';
+import { Button } from '@components/Button';
 
 export function Profile() {
   return (
