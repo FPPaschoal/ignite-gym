@@ -50,6 +50,7 @@ export function Home() {
         }}
         my={'$10'}
         maxHeight={'$10'}
+        minHeight={'$10'}
       />
 
       <VStack px={'$8'}>

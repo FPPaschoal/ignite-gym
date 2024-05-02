@@ -1,5 +1,4 @@
 import { Image } from '@gluestack-ui/themed';
-import { DimensionValue } from 'react-native';
 
 type Props = React.ComponentProps<typeof Image>;
 
