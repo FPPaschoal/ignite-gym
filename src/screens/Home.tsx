@@ -55,7 +55,12 @@ export function Home() {
 
       <VStack px={'$8'}>
         <HStack justifyContent="space-between" mb={'$5'} alignItems="center">
-          <Heading color="$coolGray200" fontSize="$md" lineHeight={'$2xl'}>
+          <Heading
+            fontFamily="$heading"
+            color="$coolGray200"
+            fontSize="$md"
+            lineHeight={'$2xl'}
+          >
             Exercícios
           </Heading>
 
