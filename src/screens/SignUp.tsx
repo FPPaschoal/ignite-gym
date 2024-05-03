@@ -6,6 +6,10 @@ import {
   Center,
   Heading,
   ScrollView,
+  useToast,
+  ToastTitle,
+  useStyled,
+  HStack,
 } from '@gluestack-ui/themed';
 
 import BackgroundImg from '@assets/background.png';
@@ -15,7 +19,13 @@ import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { api } from '@services/api';
+import { MaterialIcons } from '@expo/vector-icons';
+
+import { AppError } from '@utils/AppError';
+import { Toast } from '@gluestack-ui/themed';
 
 type FormDataProps = {
   name: string;
@@ -38,6 +48,11 @@ const signUpSchema = yup.object({
 });
 
 export function SignUp() {
+  const { space } = useStyled().config.tokens;
+
+  const navigation = useNavigation();
+  const toast = useToast();
+
   const {
     control,
     handleSubmit,
@@ -46,19 +61,46 @@ export function SignUp() {
     resolver: yupResolver(signUpSchema),
   });
 
-  const navigation = useNavigation();
-
   function handleGoBack() {
     navigation.goBack();
   }
 
-  function handleSignUp({
-    name,
-    email,
-    password,
-    password_confirm,
-  }: FormDataProps) {
-    console.log({ name, email, password, password_confirm });
+  async function handleSignUp({ name, email, password }: FormDataProps) {
+    try {
+      const response = await api.post('/users', { name, email, password });
+      console.log(response.data);
+    } catch (error) {
+      const isAppError = error instanceof AppError;
+
+      const title = isAppError
+        ? error.message
+        : 'Não foi possível criar a conta. Tente novamente mais tarde';
+
+      toast.show({
+        placement: 'top',
+        render: ({ id }) => {
+          const toastId = 'toast-' + id;
+          return (
+            <Toast
+              bg="$error600"
+              nativeID={toastId}
+              maxWidth={'$4/5'}
+              alignSelf="center"
+              justifyContent="center"
+              alignItems="center"
+              mt={'$10'}
+            >
+              <HStack p={'$2'} gap={'$4'}>
+                <MaterialIcons name="warning" color={'white'} size={space[6]} />
+                <VStack space="xs">
+                  <ToastTitle color="$textLight50">{title}</ToastTitle>
+                </VStack>
+              </HStack>
+            </Toast>
+          );
+        },
+      });
+    }
   }
 
   return (

@@ -24,8 +24,8 @@ type FormDataProps = {
 };
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().required('Informe o e-mail').email('E-mail inválido'),
+  password: yup.string().required('Informe a senha'),
 });
 
 export function SignIn() {
