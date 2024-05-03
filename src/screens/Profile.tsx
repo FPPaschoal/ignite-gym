@@ -45,7 +45,7 @@ export function Profile() {
         { size: true }
       );
 
-      if (photoInfo.exists && photoInfo.size / 1024 > 2) {
+      if (photoInfo.exists && photoInfo.size / 1024 / 1024 > 5) {
         return toast.show({
           placement: 'top',
           render: ({ id }) => {
